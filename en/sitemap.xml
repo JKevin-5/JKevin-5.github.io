@@ -2,105 +2,105 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://JKevin-5.github.io/about/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/%E5%85%B3%E4%BA%8E/"
+                href="https://JKevin-5.github.io/cn/%E5%85%B3%E4%BA%8E/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/about/"
+                href="https://JKevin-5.github.io/about/"
                 />
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://JKevin-5.github.io/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/"
+                href="https://JKevin-5.github.io/cn/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/"
+                href="https://JKevin-5.github.io/"
                 />
   </url><url>
-    <loc>https://example.com/page/</loc>
+    <loc>https://JKevin-5.github.io/page/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/page/"
+                href="https://JKevin-5.github.io/cn/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/page/"
+                href="https://JKevin-5.github.io/page/"
                 />
   </url><url>
-    <loc>https://example.com/archives/</loc>
+    <loc>https://JKevin-5.github.io/archives/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/archives/"
+                href="https://JKevin-5.github.io/cn/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/archives/"
+                href="https://JKevin-5.github.io/archives/"
                 />
   </url><url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://JKevin-5.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/categories/"
+                href="https://JKevin-5.github.io/cn/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/categories/"
+                href="https://JKevin-5.github.io/categories/"
                 />
   </url><url>
-    <loc>https://example.com/links/</loc>
+    <loc>https://JKevin-5.github.io/links/</loc>
   </url><url>
-    <loc>https://example.com/search/</loc>
+    <loc>https://JKevin-5.github.io/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/search/"
+                href="https://JKevin-5.github.io/cn/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/search/"
+                href="https://JKevin-5.github.io/search/"
                 />
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://JKevin-5.github.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/tags/"
+                href="https://JKevin-5.github.io/cn/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/tags/"
+                href="https://JKevin-5.github.io/tags/"
                 />
   </url><url>
-    <loc>https://example.com/categories/test/</loc>
+    <loc>https://JKevin-5.github.io/categories/test/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/categories/test/"
+                href="https://JKevin-5.github.io/cn/categories/test/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/categories/test/"
+                href="https://JKevin-5.github.io/categories/test/"
                 />
   </url>
 </urlset>

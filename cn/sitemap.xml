@@ -2,115 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/cn/</loc>
+    <loc>https://JKevin-5.github.io/cn/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/"
+                href="https://JKevin-5.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/"
+                href="https://JKevin-5.github.io/cn/"
                 />
   </url><url>
-    <loc>https://example.com/cn/page/</loc>
+    <loc>https://JKevin-5.github.io/cn/page/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/page/"
+                href="https://JKevin-5.github.io/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/page/"
+                href="https://JKevin-5.github.io/cn/page/"
                 />
   </url><url>
-    <loc>https://example.com/cn/%E5%85%B3%E4%BA%8E/</loc>
+    <loc>https://JKevin-5.github.io/cn/%E5%85%B3%E4%BA%8E/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/about/"
+                href="https://JKevin-5.github.io/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/%E5%85%B3%E4%BA%8E/"
+                href="https://JKevin-5.github.io/cn/%E5%85%B3%E4%BA%8E/"
                 />
   </url><url>
-    <loc>https://example.com/cn/archives/</loc>
+    <loc>https://JKevin-5.github.io/cn/archives/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/archives/"
+                href="https://JKevin-5.github.io/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/archives/"
+                href="https://JKevin-5.github.io/cn/archives/"
                 />
   </url><url>
-    <loc>https://example.com/cn/categories/</loc>
+    <loc>https://JKevin-5.github.io/cn/categories/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/categories/"
+                href="https://JKevin-5.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/categories/"
+                href="https://JKevin-5.github.io/cn/categories/"
                 />
   </url><url>
-    <loc>https://example.com/cn/p/test-chinese/</loc>
+    <loc>https://JKevin-5.github.io/cn/p/test-chinese/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/cn/post/</loc>
+    <loc>https://JKevin-5.github.io/cn/post/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/cn/categories/test/</loc>
+    <loc>https://JKevin-5.github.io/cn/categories/test/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/categories/test/"
+                href="https://JKevin-5.github.io/categories/test/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/categories/test/"
+                href="https://JKevin-5.github.io/cn/categories/test/"
                 />
   </url><url>
-    <loc>https://example.com/cn/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://JKevin-5.github.io/cn/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/cn/tags/</loc>
+    <loc>https://JKevin-5.github.io/cn/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/tags/"
+                href="https://JKevin-5.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/tags/"
+                href="https://JKevin-5.github.io/cn/tags/"
                 />
   </url><url>
-    <loc>https://example.com/cn/search/</loc>
+    <loc>https://JKevin-5.github.io/cn/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/search/"
+                href="https://JKevin-5.github.io/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://example.com/cn/search/"
+                href="https://JKevin-5.github.io/cn/search/"
                 />
   </url>
 </urlset>
