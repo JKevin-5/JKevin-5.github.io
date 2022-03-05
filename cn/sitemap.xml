@@ -2,115 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://JKevin-5.github.io/cn/</loc>
+    <loc>https://JKevin-5.github.io/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+                href="https://JKevin-5.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
                 href="https://JKevin-5.github.io/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://JKevin-5.github.io/cn/"
-                />
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/page/</loc>
+    <loc>https://JKevin-5.github.io/page/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://JKevin-5.github.io/page/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://JKevin-5.github.io/cn/page/"
-                />
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/%E5%85%B3%E4%BA%8E/</loc>
+    <loc>https://JKevin-5.github.io/%E5%85%B3%E4%BA%8E/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://JKevin-5.github.io/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://JKevin-5.github.io/cn/%E5%85%B3%E4%BA%8E/"
-                />
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/archives/</loc>
+    <loc>https://JKevin-5.github.io/archives/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://JKevin-5.github.io/archives/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://JKevin-5.github.io/cn/archives/"
-                />
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/categories/</loc>
+    <loc>https://JKevin-5.github.io/categories/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+                href="https://JKevin-5.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
                 href="https://JKevin-5.github.io/categories/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://JKevin-5.github.io/cn/categories/"
-                />
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/p/test-chinese/</loc>
+    <loc>https://JKevin-5.github.io/p/test-chinese/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/post/</loc>
+    <loc>https://JKevin-5.github.io/post/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/categories/test/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://JKevin-5.github.io/categories/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://JKevin-5.github.io/cn/categories/test/"
-                />
-  </url><url>
-    <loc>https://JKevin-5.github.io/cn/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://JKevin-5.github.io/categories/test/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/tags/</loc>
+    <loc>https://JKevin-5.github.io/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://JKevin-5.github.io/links/</loc>
+  </url><url>
+    <loc>https://JKevin-5.github.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+                href="https://JKevin-5.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
                 href="https://JKevin-5.github.io/tags/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://JKevin-5.github.io/cn/tags/"
-                />
   </url><url>
-    <loc>https://JKevin-5.github.io/cn/search/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://JKevin-5.github.io/search/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://JKevin-5.github.io/cn/search/"
-                />
+    <loc>https://JKevin-5.github.io/search/</loc>
   </url>
 </urlset>
