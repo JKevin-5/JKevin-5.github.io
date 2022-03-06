@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Kevin&#39;s Post</title>
+    <title>Categories on Kevin&#39;s Blog</title>
     <link>https://JKevin-5.github.io/en/categories/</link>
-    <description>Recent content in Categories on Kevin&#39;s Post</description>
+    <description>Recent content in Categories on Kevin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language><atom:link href="https://JKevin-5.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
