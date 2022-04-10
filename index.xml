@@ -6,7 +6,179 @@
         <description>Recent content on Kevin&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://JKevin-5.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://JKevin-5.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>【Java】阿里Java开发手册-部分总结（一）</title>
+        <link>https://JKevin-5.github.io/p/20220410/</link>
+        <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://JKevin-5.github.io/p/20220410/</guid>
+        <description>&lt;p&gt;文档的获取途径可以通过&lt;a class=&#34;link&#34; href=&#34;https://github.com/alibaba/p3c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub链接&lt;/a&gt;下载。&lt;/p&gt;
+&lt;h2 id=&#34;一命名风格&#34;&gt;一、命名风格&lt;/h2&gt;
+&lt;h3 id=&#34;11所有命名&#34;&gt;1.1、所有命名&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;所有编程相关命名&lt;strong&gt;不能&lt;/strong&gt;以下划线或美元符号&lt;code&gt;_$&lt;/code&gt;开始或结束；&lt;/li&gt;
+&lt;li&gt;所有编程相关命名&lt;strong&gt;严禁&lt;/strong&gt;使用拼音与英文混合的方式，也不允许直接使用中文的方式（按照正确的英文拼写和语法）；&lt;/li&gt;
+&lt;li&gt;代码和注释中&lt;strong&gt;避免&lt;/strong&gt;使用任何人类语言中种族歧视或侮辱性词语；&lt;/li&gt;
+&lt;li&gt;为了达到代码自解释的目标，任何自定义编程元素在命名时，使用完整的单词组合来表达；&lt;/li&gt;
+&lt;li&gt;如果模块、接口、类、方法使用了设计模式，在命名时要体现出具体模式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12类接口&#34;&gt;1.2、类、接口&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;类名使用UpperCamelCase风格（使用大写英文字母&lt;strong&gt;打头&lt;/strong&gt;）；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;抽象类命名使用Abstract或Base&lt;strong&gt;开头&lt;/strong&gt;；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;异常类命名使用Exception&lt;strong&gt;结尾&lt;/strong&gt;；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;测试类命名以它要测试的类的名称&lt;strong&gt;开始&lt;/strong&gt;，以Test&lt;strong&gt;结尾；&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接口类中的方法和属性不要加任何修饰符号（public也不要加），保持代码的简洁性，并加上有效的Javadoc注释*；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接口和实现类的命名规则：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;对于Service和DAO类，内部的实现类用Impl的后缀与接口区别；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;CacheServiceImpl实现CacheService接口&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果是形容能力的接口名称，取对应的形容词为接口名（通常是-able结尾的形容词）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;AbstractTranslator实现Translatable&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;枚举类*名带上Enum后缀，枚举成员名称需要全大写，单词间下划线隔开。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;13方法参数成员变量局部变量常量数组&#34;&gt;1.3、方法、参数、成员变量、局部变量、常量、数组&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;方法名、参数名、成员变量、局部变量使用lowerCamelCase风格（使用小写英文字母打头）；&lt;/li&gt;
+&lt;li&gt;常量命名应该全部大写，单词间用下划线隔开；&lt;/li&gt;
+&lt;li&gt;类型与中括号紧挨相连来定义数组 &lt;code&gt;Type[] arrayList&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;在常量与变量命名时，表示类型的名词放在词尾，以提高辨识度&lt;code&gt;nameList/startTime/workQueue&lt;/code&gt;；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;14包名&#34;&gt;1.4、包名&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用&lt;strong&gt;单数&lt;/strong&gt;形式，但是类名如果有复数含义，类名可以使用复数形式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;15各层命名规约&#34;&gt;1.5、各层命名规约&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Service/DAO层方法命名规约：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;获取单个对象的方法：get为前缀&lt;/li&gt;
+&lt;li&gt;获取多个对象的方法：list为前缀，复数结尾，如&lt;code&gt;listObjects&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;获取统计值的方法：count为前缀&lt;/li&gt;
+&lt;li&gt;插入的方法：save/insert做前缀&lt;/li&gt;
+&lt;li&gt;删除的方法：remove/delete做前缀&lt;/li&gt;
+&lt;li&gt;修改的方法：update做前缀&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;领域模型命名规约&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;数据对象：xxxDO，xxx为数据表名&lt;/li&gt;
+&lt;li&gt;数据传输对象：xxxDTO，xxx为业务领域相关的名称&lt;/li&gt;
+&lt;li&gt;展示对象：xxxVO，xxx一般为网页名称&lt;/li&gt;
+&lt;li&gt;POJO&lt;em&gt;是DO&lt;/em&gt;/DTO*/BO*/VO*的统称，禁止命名成xxxPOJO&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;二代码格式&#34;&gt;二、代码格式&lt;/h2&gt;
+&lt;h3 id=&#34;21大括号小括号&#34;&gt;2.1、大括号、小括号&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果大括号内为空，简洁地写成{}即可，大括号中间无需换行和空格；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果非空代码块，则：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;public static void main(String[] args) {// 左边大括号前加空格切不换行，左大括号后换行
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			if (xxx == xx) {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					xxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					// 右大括号前换行，右大括号后有else，else在同一行，不用换行
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			} else {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;					xxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			} // 在右大括号后直接结束，则必须换行
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;if/for/while/switch/do等保留字与左右括号之间都必须加空格；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左小括号和右边相邻字符之间不需要空格；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;右小括号和左边相邻字符之间不需要空格；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左大括号前要加空格；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;22运算符&#34;&gt;2.2、运算符&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;任何二目、三目运算符的左右两边都要加一个空格（包括赋值运算符=、逻辑运算符&amp;amp;&amp;amp;、加减乘除符号等；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;23其它&#34;&gt;2.3、其它&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;采用4个空格缩进，禁止使用tab字符（可以在ide进行tab缩进的设置）；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注释的双斜线与注释内容之间有且仅有一个空格；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在进行类型强制转换时，右括号与强制转换值之间不需要任何空格隔开；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单行字符数限制不超过120个，超出需要换行，换行时遵循如下原则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第二行相对第一行缩进4个空格，从第三行开始，不再继续缩进；&lt;/li&gt;
+&lt;li&gt;运算符与下文一起换行；&lt;/li&gt;
+&lt;li&gt;方法调用的点符号与下文一起换行；&lt;/li&gt;
+&lt;li&gt;方法调用中的多个参数需要换行时，在逗号后进行；&lt;/li&gt;
+&lt;li&gt;在括号前不要换行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方法参数在定义和传入时，多个参数逗号后面必须加空格；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;method(arg1, arg2, arg3);&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单个方法总行数不超过80行；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;没有必要增加若干空格来使变量的赋值等号与上一行对应位置的等号对齐；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;未完待续&amp;hellip;.&lt;/p&gt;
+&lt;h2 id=&#34;三总结&#34;&gt;三、总结&lt;/h2&gt;
+&lt;p&gt;后续有空再陆陆续续添加mysql相关、Java相关规约补充，很多规约没有形成文档的时候都是一团乱麻。好比看了阿里的开发手册后我才发现公司框架中很多地方是遵循了这个规约但是并没有文档可以参考，大部分的编码风格都是靠项目初期整理或搭建框架的“大佬“定下的主基调，后续的人有的遵循着开发有的就另辟自己的风格，导致项目中很多东西都很难理解和看懂，冗余以及效率上的问题时有发生。&lt;/p&gt;
+&lt;p&gt;最近有在听《组织进化论》的播客节目，硬知识干货不少，硬广爸爸飞书的推广也是很足，导致现在让我感觉不使用飞书就不是好企业的幻觉。但是有一点特别赞同的，不管是哪个工作时期，工作中留下文档是很必要的，不管是让别人知道你干了些什么，或者是你会干什么，更或者是你离职了之后后面的人如何接手你的工作，都是一个很好的参考，对于你自己的复盘也是一个很棒的资料。推荐大家积极留下文档，但不限于形式。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>如何在Linux上使用定时任务执行python脚本</title>
         <link>https://JKevin-5.github.io/p/20220404/</link>
         <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>

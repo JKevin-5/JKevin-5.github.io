@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://JKevin-5.github.io/categories/</loc>
-    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,8 +15,11 @@
                 href="https://JKevin-5.github.io/categories/"
                 />
   </url><url>
+    <loc>https://JKevin-5.github.io/categories/java/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://JKevin-5.github.io/</loc>
-    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,10 +31,13 @@
                 href="https://JKevin-5.github.io/"
                 />
   </url><url>
-    <loc>https://JKevin-5.github.io/categories/linux/</loc>
-    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://JKevin-5.github.io/post/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://JKevin-5.github.io/p/20220410/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://JKevin-5.github.io/categories/linux/</loc>
     <lastmod>2022-04-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://JKevin-5.github.io/p/20220404/</loc>
