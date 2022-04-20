@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='具体的场景为：在Linux服务器中使用定时任务插件实现python或shell脚本定时启动。'><title>如何在Linux上使用定时任务执行python脚本</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='起初一直使用的是Mybatis，通常小到简单的select语句都要写个Mapper或xml才可以实现。现在有了Mybatis-Plus插件，是真的挺香的。晚上睡不着觉，顺手把最近使用到的点记录下来。'><title>【MySql】结合请求场景的Mybatis-Plus应用</title>
 
-<link rel='canonical' href='http://www.jkevinspark.com/p/20220404/'>
+<link rel='canonical' href='http://www.jkevinspark.com/p/20220420/'>
 
-<link rel="stylesheet" href="/scss/style.min.b80bf249ce4a22cf55e8d7340a0b37a2f2c10f54f3a9a49cb94b694a2eb0bbea.css"><meta property='og:title' content='如何在Linux上使用定时任务执行python脚本'>
-<meta property='og:description' content='具体的场景为：在Linux服务器中使用定时任务插件实现python或shell脚本定时启动。'>
-<meta property='og:url' content='http://www.jkevinspark.com/p/20220404/'>
+<link rel="stylesheet" href="/scss/style.min.b80bf249ce4a22cf55e8d7340a0b37a2f2c10f54f3a9a49cb94b694a2eb0bbea.css"><meta property='og:title' content='【MySql】结合请求场景的Mybatis-Plus应用'>
+<meta property='og:description' content='起初一直使用的是Mybatis，通常小到简单的select语句都要写个Mapper或xml才可以实现。现在有了Mybatis-Plus插件，是真的挺香的。晚上睡不着觉，顺手把最近使用到的点记录下来。'>
+<meta property='og:url' content='http://www.jkevinspark.com/p/20220420/'>
 <meta property='og:site_name' content='Kevin&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-04-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-04T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="如何在Linux上使用定时任务执行python脚本">
-<meta name="twitter:description" content="具体的场景为：在Linux服务器中使用定时任务插件实现python或shell脚本定时启动。">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-04-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-20T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="【MySql】结合请求场景的Mybatis-Plus应用">
+<meta name="twitter:description" content="起初一直使用的是Mybatis，通常小到简单的select语句都要写个Mapper或xml才可以实现。现在有了Mybatis-Plus插件，是真的挺香的。晚上睡不着觉，顺手把最近使用到的点记录下来。">
     </head>
     <body class="
     article-page
@@ -266,8 +266,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/linux/" >
-                Linux
+            <a href="/categories/mysql/" >
+                MySql
             </a>
         
     </header>
@@ -275,12 +275,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/20220404/">如何在Linux上使用定时任务执行python脚本</a>
+            <a href="/p/20220420/">【MySql】结合请求场景的Mybatis-Plus应用</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            具体的场景为：在Linux服务器中使用定时任务插件实现python或shell脚本定时启动。
+            起初一直使用的是Mybatis，通常小到简单的select语句都要写个Mapper或xml才可以实现。现在有了Mybatis-Plus插件，是真的挺香的。晚上睡不着觉，顺手把最近使用到的点记录下来。
         </h3>
         
     </div>
@@ -298,7 +298,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 04, 2022</time>
+                <time class="article-time--published">Apr 20, 2022</time>
             </div>
         
 
@@ -313,7 +313,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -327,20 +327,43 @@
     <section class="article-content">
     
     
-    <blockquote>
-<p>最主要的目的是为了实现定时的将当日基金数据爬到自己的数据库中，且集成日志管理、定时任务等。</p>
+    <h2 id="mybatis-plus">MyBatis-Plus</h2>
+<p>首先是，What&amp;Why</p>
+<h3 id="mybatis">MyBatis</h3>
+<blockquote>
+<p>MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。——引自MyBatis的官网</p>
 </blockquote>
-<h2 id="一crontablinux自带定时任务管理">一、crontab——Linux自带定时任务管理</h2>
+<p>介绍中清楚的写到MyBatis需要通过创建XML或注解的方式去配置，非常的繁琐，如下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;selectPerson&#34;</span> <span class="na">parameterType=</span><span class="s">&#34;int&#34;</span> <span class="na">resultType=</span><span class="s">&#34;hashmap&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  SELECT * FROM PERSON WHERE ID = #{id}
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/select&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果是习惯了之前使用JPA的方式开发的朋友会怀念JPA中简短的操作，只需要在Repository中继承JpaRepository就可以实现简单的增删改查的功能，而这些在MyBatis-Plus中实现了。</p>
+<h3 id="mybatis-plus-1">MyBatis-Plus</h3>
+<blockquote>
+<p>MyBatis-Plus (opens new window)（简称 MP）是一个 MyBatis (opens new window)的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。——引自MyBatis-Plus官网</p>
+</blockquote>
+<p>介绍中有几个点需要注意，一个是增强不做改变，一个是简化开发。</p>
+<p>增强不做改变是因为引入之后不会使得之前搭配MyBatis设置的xml或mapper的开发方式出现错误；</p>
+<p>简化开发是启动自动注入基本的CRUD、支持Lambda形式调用，甚至还有对sql性能的监测等等，都是让人非常激动的特性。相信懒汉总是有办法让自己吃饱。</p>
+<h2 id="二搭配请求场景的一些使用">二、搭配请求场景的一些使用</h2>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p>crontab有几点好处：</p>
-<ul>
-<li>随着系统的开关而开关，重启自动开启任务，不用操心服务器状态；</li>
-<li>crontab支持多种的脚本启动；</li>
-<li>如果语法没有写对的情况下保存会有相应的报错。</li>
-</ul>
-<p>更多有关crontab定时任务的设定的可以参考<a class="link" href="https://tool.lu/crontab/"  target="_blank" rel="noopener"
-    >工具网站</a>，切记选择Linux。</p>
+<ol>
+<li>
+<p>MyBatis的初始化，详细见<a class="link" href="https://baomidou.com/"  target="_blank" rel="noopener"
+    >官网</a></p>
+</li>
+<li>
+<p>对于一个字段的多个值进行搜索</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -355,70 +378,251 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># crontab 定时任务清单查看
-</span></span><span class="line"><span class="cl">crontab -l
-</span></span><span class="line"><span class="cl"># crontab 定时任务清单编写
-</span></span><span class="line"><span class="cl">crontab -e
-</span></span><span class="line"><span class="cl"># python脚本设置
-</span></span><span class="line"><span class="cl"># 每周1-5的14点和12点执行
-</span></span><span class="line"><span class="cl">0 12，14 * * 1-5 python /home/crontab/demo.py
-</span></span><span class="line"><span class="cl"># shell脚本设置
-</span></span><span class="line"><span class="cl"># 在 凌晨00:10运行
-</span></span><span class="line"><span class="cl">10 0 * * * /home/swz/aa.sh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="二linux修改时区">二、Linux修改时区</h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<ol>
-<li>使用<code>timedatectl</code>查看当前时区；</li>
-<li>更改时区设定前可以先搜索一下时区列表<code>timedatectl list-timezones</code>；</li>
-<li>默认时区可以设置为上海<code>sudo timedatectl set-timezone Asia/Shanghai</code>。</li>
-</ol>
-<h2 id="三切换python版本">三、切换python版本</h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<ol>
-<li>
-<p>Linux的命令行软链接地址为：<code>/usr/bin</code>；</p>
-</li>
-<li>
-<p>centos7默认带有python2.7以及python3.6，默认python命令是指向的python2.7；</p>
-</li>
-<li>
-<p>如何修改python指令的默认指向；</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 首先删除之前已有的软链接
-</span></span><span class="line"><span class="cl">rm /usr/bin/python
-</span></span><span class="line"><span class="cl"># 创建新的软链接到python3.6
-</span></span><span class="line"><span class="cl">ln -s /usr/bin/python3.6 /usr/bin/python
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 例如以一个或多个基金名称来搜索数据
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @Param：List
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @Return：List
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/funds&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">FundInfo</span><span class="o">&gt;</span> <span class="nf">getFundInfoByName</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">fundNameList</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">List</span><span class="o">&lt;</span><span class="n">FundInfo</span><span class="o">&gt;</span> <span class="n">fundList</span> <span class="o">=</span> <span class="n">fundInfoMapper</span><span class="o">.</span><span class="na">selectBatchIds</span><span class="o">(</span><span class="n">fundNameList</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">fundInfoList</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
-<p>需要注意点是，只切换了python的版本是不够的，pip可能还是指向的之前的2.7版本，两个版本需要一致。</p>
+<p>模糊搜索</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 例如对基金名称、基金编号进行模糊搜索，可考虑默认返回的数据条数Limit，使用场景下拉选择
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @Param:String
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @Return:List
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/fund/{name}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">FundToday</span><span class="o">&gt;</span> <span class="nf">getFundInfoByNameOrCode</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">fundName</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 创建一个MyBatis-Plus的SQL构造器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">QueryWrapper</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">FundToday</span><span class="o">&gt;();</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// like用来做模糊匹配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">,</span><span class="n">fundName</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// or这边简单明了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">queryWrapper</span><span class="o">.</span><span class="na">or</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;fund_code&#34;</span><span class="o">,</span><span class="n">fundName</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 关于order的顺序调用这块比较不那么灵活，要可变配置的话可以看一下其他的方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">queryWrapper</span><span class="o">.</span><span class="na">orderByDesc</span><span class="o">(</span><span class="s">&#34;fund_code&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 最后加上对条数的限制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">queryWrapper</span><span class="o">.</span><span class="na">last</span><span class="o">(</span><span class="s">&#34;limit 5&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">fundTodayMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">queryWrapper</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>分页查询（简单实现）</p>
+<p>首先要创建一个configuration配置类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @author : Jkevin
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @version 1.0
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @date : 2022/4/17 下午5:52
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @describtion:
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@Configuration</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MybatisPlusConfig</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Bean</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">MybatisPlusInterceptor</span> <span class="nf">mybatisPlusInterceptor</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MybatisPlusInterceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MybatisPlusInterceptor</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">interceptor</span><span class="o">.</span><span class="na">addInnerInterceptor</span><span class="o">(</span><span class="k">new</span> <span class="n">PaginationInnerInterceptor</span><span class="o">(</span><span class="n">DbType</span><span class="o">.</span><span class="na">MYSQL</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">interceptor</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其次才是创建对应的逻辑</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">  * @Author JKevin
+</span></span></span><span class="line"><span class="cl"><span class="cm">  * @Description: 分页查询功能
+</span></span></span><span class="line"><span class="cl"><span class="cm">  * @Date 2022/4/17
+</span></span></span><span class="line"><span class="cl"><span class="cm">  * @Param
+</span></span></span><span class="line"><span class="cl"><span class="cm">  * @return
+</span></span></span><span class="line"><span class="cl"><span class="cm">  **/</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&#34;/fund/all&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">IPage</span><span class="o">&lt;</span><span class="n">FundToday</span><span class="o">&gt;</span> <span class="nf">getAllFundInfo</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">FundPageDTO</span> <span class="n">fundPageDTO</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">FundToday</span><span class="o">&gt;</span> <span class="n">wrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 在此处可以写前端传入的condition查询条件部分内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="o">(</span> <span class="n">StringUtils</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="o">(</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getFilter</span><span class="o">())</span> <span class="o">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">wrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">,</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getFilter</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">		<span class="n">wrapper</span><span class="o">.</span><span class="na">or</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">		<span class="n">wrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;fund_code&#34;</span><span class="o">,</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getFilter</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 此处是为了前台表格可以实现顺序、逆序的切换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="o">(</span> <span class="n">StringUtils</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="o">(</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getFilterName</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="n">StringUtils</span><span class="o">.</span><span class="na">isNotEmpty</span><span class="o">(</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getFilterType</span><span class="o">().</span><span class="na">toString</span><span class="o">())){</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// orderBy 会更加灵活
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">wrapper</span><span class="o">.</span><span class="na">orderBy</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getFilterType</span><span class="o">(),</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getFilterName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 可以选择直接返回page或者是转换为list返回
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Page</span><span class="o">&lt;</span><span class="n">FundToday</span><span class="o">&gt;</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;(</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getCurrent</span><span class="o">(),</span><span class="n">fundPageDTO</span><span class="o">.</span><span class="na">getSize</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">	<span class="n">IPage</span><span class="o">&lt;</span><span class="n">FundToday</span><span class="o">&gt;</span> <span class="n">fundTodayIPage</span> <span class="o">=</span> <span class="n">fundTodayMapper</span><span class="o">.</span><span class="na">selectPage</span><span class="o">(</span><span class="n">page</span><span class="o">,</span><span class="n">wrapper</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">fundTodayIPage</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>简单的增删改查</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 查
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/user/{userId}&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Possession</span><span class="o">&gt;</span> <span class="nf">findPossessionsByUserId</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&#34;userId&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">userId</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">QueryWrapper</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;userId&#34;</span><span class="o">,</span><span class="n">userId</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">possessionMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">queryWrapper</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 增
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@PostMapping</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">addPossession</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">Possession</span> <span class="n">possession</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">possessionMapper</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">possession</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 删
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@DeleteMapping</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">deletePossession</span><span class="o">(</span> <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span>  <span class="kt">int</span> <span class="n">id</span>
+</span></span><span class="line"><span class="cl">														<span class="o">,</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&#34;userId&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">userId</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">QueryWrapper</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">,</span><span class="n">id</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;userId&#34;</span><span class="o">,</span><span class="n">userId</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">possessionMapper</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">queryWrapper</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 改
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@PutMapping</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">updatePossession</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">Possession</span> <span class="n">possession</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">QueryWrapper</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">,</span><span class="n">possession</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">	<span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;userId&#34;</span><span class="o">,</span><span class="n">possession</span><span class="o">.</span><span class="na">getUserId</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">possessionMapper</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">possession</span><span class="o">,</span><span class="n">queryWrapper</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>其他的例子可以看：<a class="link" href="https://github.com/baomidou/mybatis-plus-samples"  target="_blank" rel="noopener"
+    >官网示例地址</a> ，或者去查找对应需求的博客，不建议直接食用官网介绍，个人比较愚钝看不太明白🫠。</p>
 </li>
 </ol>
-<h2 id="四python的日志编写">四、Python的日志编写</h2>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<ul>
-<li>日志只要声明了，<code>logging</code>相关的语句会自动的写入本地文件；</li>
-<li>本地文件的名称和地址以下默认为日期，因为是追加方式写入，一天内启动多次也只会产生一个文件，后续可以采用另一个定时任务去删除log文件，up to u；</li>
-<li>logging中的配置，level是最低输出的log级别，跟spring中使用slfj、lombok的log是一样的，如果我没记错的话。默认为warning，切记，<code>logging.INFO</code>这个需要大写；</li>
-<li>更多有关python日志的内容可以<a class="link" href="https://zhuanlan.zhihu.com/p/339961421"  target="_blank" rel="noopener"
-    >参考网站</a>。</li>
-</ul>
-<h2 id="五总结">五、总结</h2>
-<p>脚本并不稳定，且不是任何的错误都能跟java一样能捕捉得到，所以需要不断的测试，java的相关知识也需要慢慢的产出。
-立flag，从本周起一周至少更新两篇post。</p>
+<h2 id="三总结">三、总结</h2>
+<p>写到总结的时候又是瘫了半天才开始写的，感觉自己写了很多大家都懂的东西，最多的还是对自己的近期的学习总结。如果有帮助到大家是极好的。</p>
+<p>其实总结知识并输出的时间比学习的时间会多出好多，可能一天学习的量能输出四五个散装的知识点，有时候你在coding的时候，可能不用去看API文档就可以预料到该作者应该会怎么写，尝试去利用联想进行coding，这个可能就是一个很大的进步了。</p>
+<p>Take care gays，Keep Moving。</p>
 
 </section>
 
@@ -558,11 +762,14 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#一crontablinux自带定时任务管理">一、crontab——Linux自带定时任务管理</a></li>
-    <li><a href="#二linux修改时区">二、Linux修改时区</a></li>
-    <li><a href="#三切换python版本">三、切换python版本</a></li>
-    <li><a href="#四python的日志编写">四、Python的日志编写</a></li>
-    <li><a href="#五总结">五、总结</a></li>
+    <li><a href="#mybatis-plus">MyBatis-Plus</a>
+      <ol>
+        <li><a href="#mybatis">MyBatis</a></li>
+        <li><a href="#mybatis-plus-1">MyBatis-Plus</a></li>
+      </ol>
+    </li>
+    <li><a href="#二搭配请求场景的一些使用">二、搭配请求场景的一些使用</a></li>
+    <li><a href="#三总结">三、总结</a></li>
   </ol>
 </nav>
         </div>

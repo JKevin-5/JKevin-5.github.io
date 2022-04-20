@@ -2,19 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Kevin&#39;s Blog</title>
-    <link>https://JKevin-5.github.io/post/</link>
+    <link>http://www.jkevinspark.com/post/</link>
     <description>Recent content in Posts on Kevin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://JKevin-5.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://www.jkevinspark.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【MySql】结合请求场景的Mybatis-Plus应用</title>
+      <link>http://www.jkevinspark.com/p/20220420/</link>
+      <pubDate>Wed, 20 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.jkevinspark.com/p/20220420/</guid>
+      <description>MyBatis-Plus 首先是，What&amp;amp;Why
+MyBatis  MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。——引自MyBatis的官网
+ 介绍中清楚的写到MyBatis需要通过创建XML或注解的方式去配置，非常的繁琐，如下。
+1 2 3  &amp;lt;select id=&amp;#34;selectPerson&amp;#34; parameterType=&amp;#34;int&amp;#34; resultType=&amp;#34;hashmap&amp;#34;&amp;gt; SELECT * FROM PERSON WHERE ID = #{id} &amp;lt;/select&amp;gt;   如果是习惯了之前使用JPA的方式开发的朋友会怀念JPA中简短的操作，只需要在Repository中继承JpaRepository就可以实现简单的增删改查的功能，而这些在MyBatis-Plus中实现了。
+MyBatis-Plus  MyBatis-Plus (opens new window)（简称 MP）是一个 MyBatis (opens new window)的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。——引自MyBatis-Plus官网
+ 介绍中有几个点需要注意，一个是增强不做改变，一个是简化开发。
+增强不做改变是因为引入之后不会使得之前搭配MyBatis设置的xml或mapper的开发方式出现错误；
+简化开发是启动自动注入基本的CRUD、支持Lambda形式调用，甚至还有对sql性能的监测等等，都是让人非常激动的特性。相信懒汉总是有办法让自己吃饱。
+二、搭配请求场景的一些使用   MyBatis的初始化，详细见官网
+  对于一个字段的多个值进行搜索
+1 2 3 4 5 6 7 8 9 10  /** * 例如以一个或多个基金名称来搜索数据 * @Param：List * @Return：List */ @GetMapping(&amp;#34;/funds&amp;#34;) public List&amp;lt;FundInfo&amp;gt; getFundInfoByName(@RequestBody List&amp;lt;String&amp;gt; fundNameList){ List&amp;lt;FundInfo&amp;gt; fundList = fundInfoMapper.</description>
+    </item>
+    
     <item>
       <title>【Java】阿里Java开发手册-部分总结（一）</title>
-      <link>https://JKevin-5.github.io/p/20220410/</link>
+      <link>http://www.jkevinspark.com/p/20220410/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://JKevin-5.github.io/p/20220410/</guid>
+      <guid>http://www.jkevinspark.com/p/20220410/</guid>
       <description>文档的获取途径可以通过GitHub链接下载。
-一、命名风格 1.1、所有命名  所有编程相关命名不能以下划线或美元符号_$开始或结束； 所有编程相关命名严禁使用拼音与英文混合的方式，也不允许直接使用中文的方式（按照正确的英文拼写和语法）； 代码和注释中避免使用任何人类语言中种族歧视或侮辱性词语； 为了达到代码自解释的目标，任何自定义编程元素在命名时，使用完整的单词组合来表达； 如果模块、接口、类、方法使用了设计模式，在命名时要体现出具体模式。  1.2、类、接口   类名使用UpperCamelCase风格（使用大写英文字母打头）；
+命名风格 所有命名  所有编程相关命名不能以下划线或美元符号_$开始或结束； 所有编程相关命名严禁使用拼音与英文混合的方式，也不允许直接使用中文的方式（按照正确的英文拼写和语法）； 代码和注释中避免使用任何人类语言中种族歧视或侮辱性词语； 为了达到代码自解释的目标，任何自定义编程元素在命名时，使用完整的单词组合来表达； 如果模块、接口、类、方法使用了设计模式，在命名时要体现出具体模式。  类、接口   类名使用UpperCamelCase风格（使用大写英文字母打头）；
   抽象类命名使用Abstract或Base开头；
   异常类命名使用Exception结尾；
   测试类命名以它要测试的类的名称开始，以Test结尾；
@@ -25,16 +44,16 @@ CacheServiceImpl实现CacheService接口
   如果是形容能力的接口名称，取对应的形容词为接口名（通常是-able结尾的形容词）。
 AbstractTranslator实现Translatable
     枚举类*名带上Enum后缀，枚举成员名称需要全大写，单词间下划线隔开。
-  1.3、方法、参数、成员变量、局部变量、常量、数组  方法名、参数名、成员变量、局部变量使用lowerCamelCase风格（使用小写英文字母打头）； 常量命名应该全部大写，单词间用下划线隔开； 类型与中括号紧挨相连来定义数组 Type[] arrayList； 在常量与变量命名时，表示类型的名词放在词尾，以提高辨识度nameList/startTime/workQueue；  1.4、包名  包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。  1.5、各层命名规约   Service/DAO层方法命名规约：
+  方法、参数、成员变量、局部变量、常量、数组  方法名、参数名、成员变量、局部变量使用lowerCamelCase风格（使用小写英文字母打头）； 常量命名应该全部大写，单词间用下划线隔开； 类型与中括号紧挨相连来定义数组 Type[] arrayList； 在常量与变量命名时，表示类型的名词放在词尾，以提高辨识度nameList/startTime/workQueue；  包名  包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。  各层命名规约   Service/DAO层方法命名规约：
  获取单个对象的方法：get为前缀 获取多个对象的方法：list为前缀，复数结尾，如listObjects 获取统计值的方法：count为前缀 插入的方法：save/insert做前缀 删除的方法：remove/delete做前缀 修改的方法：update做前缀    领域模型命名规约</description>
     </item>
     
     <item>
       <title>如何在Linux上使用定时任务执行python脚本</title>
-      <link>https://JKevin-5.github.io/p/20220404/</link>
+      <link>http://www.jkevinspark.com/p/20220404/</link>
       <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://JKevin-5.github.io/p/20220404/</guid>
+      <guid>http://www.jkevinspark.com/p/20220404/</guid>
       <description>最主要的目的是为了实现定时的将当日基金数据爬到自己的数据库中，且集成日志管理、定时任务等。
  一、crontab——Linux自带定时任务管理 crontab有几点好处：
  随着系统的开关而开关，重启自动开启任务，不用操心服务器状态； crontab支持多种的脚本启动； 如果语法没有写对的情况下保存会有相应的报错。  更多有关crontab定时任务的设定的可以参考工具网站，切记选择Linux。
@@ -43,10 +62,10 @@ AbstractTranslator实现Translatable
     
     <item>
       <title>Pictures</title>
-      <link>https://JKevin-5.github.io/p/20220304/</link>
+      <link>http://www.jkevinspark.com/p/20220304/</link>
       <pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://JKevin-5.github.io/p/20220304/</guid>
+      <guid>http://www.jkevinspark.com/p/20220304/</guid>
       <description>Apple IPPAWARDS比赛  随意挑选了几张照片参加了这个比赛，大概率是去凑了个分母，但是还是蛮开心的Deadline：2022-03-31
 参赛链接
  夜晚的厦门  周五晚上下班就直接冲岛内，逛了一晚上

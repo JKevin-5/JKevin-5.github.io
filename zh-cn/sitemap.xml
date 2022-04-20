@@ -2,75 +2,81 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://JKevin-5.github.io/categories/</loc>
-    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+    <loc>http://www.jkevinspark.com/categories/</loc>
+    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://JKevin-5.github.io/en/categories/"
+                href="http://www.jkevinspark.com/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://JKevin-5.github.io/categories/"
+                href="http://www.jkevinspark.com/categories/"
                 />
   </url><url>
-    <loc>https://JKevin-5.github.io/categories/java/</loc>
-    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://JKevin-5.github.io/</loc>
-    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+    <loc>http://www.jkevinspark.com/</loc>
+    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://JKevin-5.github.io/en/"
+                href="http://www.jkevinspark.com/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://JKevin-5.github.io/"
+                href="http://www.jkevinspark.com/"
                 />
   </url><url>
-    <loc>https://JKevin-5.github.io/post/</loc>
+    <loc>http://www.jkevinspark.com/categories/mysql/</loc>
+    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.jkevinspark.com/post/</loc>
+    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.jkevinspark.com/p/20220420/</loc>
+    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.jkevinspark.com/categories/java/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/p/20220410/</loc>
+    <loc>http://www.jkevinspark.com/p/20220410/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/categories/linux/</loc>
+    <loc>http://www.jkevinspark.com/categories/linux/</loc>
     <lastmod>2022-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/p/20220404/</loc>
+    <loc>http://www.jkevinspark.com/p/20220404/</loc>
     <lastmod>2022-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/page/</loc>
+    <loc>http://www.jkevinspark.com/page/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/categories/picture/</loc>
+    <loc>http://www.jkevinspark.com/categories/picture/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/p/20220304/</loc>
+    <loc>http://www.jkevinspark.com/p/20220304/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/%E5%85%B3%E4%BA%8E/</loc>
+    <loc>http://www.jkevinspark.com/%E5%85%B3%E4%BA%8E/</loc>
     <lastmod>2022-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://JKevin-5.github.io/tags/</loc>
+    <loc>http://www.jkevinspark.com/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://JKevin-5.github.io/en/tags/"
+                href="http://www.jkevinspark.com/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://JKevin-5.github.io/tags/"
+                href="http://www.jkevinspark.com/tags/"
                 />
   </url><url>
-    <loc>https://JKevin-5.github.io/archives/</loc>
+    <loc>http://www.jkevinspark.com/archives/</loc>
   </url><url>
-    <loc>https://JKevin-5.github.io/search/</loc>
+    <loc>http://www.jkevinspark.com/search/</loc>
   </url><url>
-    <loc>https://JKevin-5.github.io/%E9%93%BE%E6%8E%A5/</loc>
+    <loc>http://www.jkevinspark.com/%E9%93%BE%E6%8E%A5/</loc>
   </url>
 </urlset>

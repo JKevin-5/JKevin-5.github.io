@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://JKevin-5.github.io/en/categories/</loc>
+    <loc>http://www.jkevinspark.com/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://JKevin-5.github.io/categories/"
+                href="http://www.jkevinspark.com/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://JKevin-5.github.io/en/categories/"
+                href="http://www.jkevinspark.com/en/categories/"
                 />
   </url><url>
-    <loc>https://JKevin-5.github.io/en/</loc>
+    <loc>http://www.jkevinspark.com/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://JKevin-5.github.io/"
+                href="http://www.jkevinspark.com/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://JKevin-5.github.io/en/"
+                href="http://www.jkevinspark.com/en/"
                 />
   </url><url>
-    <loc>https://JKevin-5.github.io/en/tags/</loc>
+    <loc>http://www.jkevinspark.com/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://JKevin-5.github.io/tags/"
+                href="http://www.jkevinspark.com/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://JKevin-5.github.io/en/tags/"
+                href="http://www.jkevinspark.com/en/tags/"
                 />
   </url>
 </urlset>
