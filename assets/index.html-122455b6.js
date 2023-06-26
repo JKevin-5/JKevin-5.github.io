@@ -1,4 +1,4 @@
-import{_ as a,M as i,p as d,q as l,R as n,t as e,N as c,a1 as o}from"./framework-6a63a100.js";const t={},r=n("h2",{id:"在windows上对node进行管理",tabindex:"-1"},[n("a",{class:"header-anchor",href:"#在windows上对node进行管理","aria-hidden":"true"},"#"),e(" 在windows上对node进行管理")],-1),m={href:"https://blog.csdn.net/qq_33745371/article/details/109039414",target:"_blank",rel:"noopener noreferrer"},p=o(`<div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>    <span class="token comment"># 查看当前node版本</span>
+import{_ as a,M as i,p as d,q as l,R as n,t as e,N as c,a1 as o}from"./framework-6484158c.js";const t={},r=n("h2",{id:"在windows上对node进行管理",tabindex:"-1"},[n("a",{class:"header-anchor",href:"#在windows上对node进行管理","aria-hidden":"true"},"#"),e(" 在windows上对node进行管理")],-1),m={href:"https://blog.csdn.net/qq_33745371/article/details/109039414",target:"_blank",rel:"noopener noreferrer"},p=o(`<div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>    <span class="token comment"># 查看当前node版本</span>
     nvm current
     <span class="token comment"># 查看所有可用的node版本</span>
     nvm list available
