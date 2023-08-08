@@ -1,0 +1,1 @@
+import{_ as e,p as o,q as t}from"./framework-df18c678.js";const a={};function r(s,n,c,_,p,f){return o(),t("h2",null,"Into")}const d=e(a,[["render",r],["__file","DashBoard.vue"]]);export{d as default};
