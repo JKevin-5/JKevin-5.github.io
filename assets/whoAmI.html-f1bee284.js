@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-3c01e264","path":"/guide/whoAmI.html","title":"个人介绍","lang":"zh-CN","frontmatter":{"title":"个人介绍","sidebar":false,"editLink":false},"headers":[],"git":{"updatedTime":1691401470000,"contributors":[{"name":"Jkevin","email":"15810880126@163.com","commits":2}]},"filePathRelative":"guide/whoAmI.md"}');export{e as data};

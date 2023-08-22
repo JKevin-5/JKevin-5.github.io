@@ -1,0 +1,1 @@
+import{_ as n,p as t,q as l,Y as e}from"./framework-df18c678.js";const o={},s=e("ol",null,[e("li",null,"项目设计"),e("li",null,"应用范围"),e("li",null,"实现过程")],-1),_=[s];function a(c,r){return t(),l("div",null,_)}const m=n(o,[["render",a],["__file","InboxManagementSystem.html.vue"]]);export{m as default};
