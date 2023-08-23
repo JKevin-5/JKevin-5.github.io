@@ -1,0 +1,1 @@
+import{_ as t,p as l,q as n,Y as e}from"./framework-3f523f29.js";const s={},o=e("ol",null,[e("li",null,"项目设计"),e("li",null,"应用范围"),e("li",null,"实现过程")],-1),_=[o];function a(c,m){return l(),n("div",null,_)}const i=t(s,[["render",a],["__file","AmsManagementSystem.html.vue"]]);export{i as default};

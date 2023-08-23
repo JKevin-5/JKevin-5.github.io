@@ -1,1 +1,0 @@
-import{_ as c,p as s,q as n,Y as e,t}from"./framework-df18c678.js";const o={},a=e("div",{class:"custom-container tip"},[e("p",{class:"custom-container-title"},"TIP"),e("p",null,[t("用于记录个人项目以及代码片段。"),e("br"),t(" 点击左侧目录进行访问。")])],-1),r=[a];function _(i,l){return s(),n("div",null,r)}const m=c(o,[["render",_],["__file","index.html.vue"]]);export{m as default};

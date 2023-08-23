@@ -1,0 +1,1 @@
+import{_ as n,N as o,p as t,q as c,V as s}from"./framework-3f523f29.js";const _={};function a(r,l){const e=o("Tags");return t(),c("div",null,[s(e)])}const d=n(_,[["render",a],["__file","index.html.vue"]]);export{d as default};
