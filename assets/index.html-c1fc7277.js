@@ -1,1 +1,0 @@
-import{_ as c,p as s,q as n,Y as e,t}from"./framework-3f523f29.js";const o={},a=e("div",{class:"custom-container tip"},[e("p",{class:"custom-container-title"},"TIP"),e("p",null,[t("用于记录Linux指令与脚本、部署相关的内容。"),e("br"),t(" 点击左侧目录进行访问。")])],-1),r=[a];function _(i,l){return s(),n("div",null,r)}const u=c(o,[["render",_],["__file","index.html.vue"]]);export{u as default};

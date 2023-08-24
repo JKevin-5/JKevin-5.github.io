@@ -1,0 +1,1 @@
+import{_ as t,p as r,q as a,Y as e,t as c}from"./framework-e2feaeec.js";const s={},o=e("h1",{id:"charpter11-期约与异步函数",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#charpter11-期约与异步函数","aria-hidden":"true"},"#"),c(" Charpter11 期约与异步函数")],-1),n=[o];function _(h,d){return r(),a("div",null,n)}const l=t(s,[["render",_],["__file","Chapter11.html.vue"]]);export{l as default};
